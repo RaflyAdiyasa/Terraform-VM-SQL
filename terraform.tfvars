@@ -1,0 +1,1 @@
+gcp_svc_key = "~/.config/gcloud/a-07-451003-c0771c698570.json"
