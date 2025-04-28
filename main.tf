@@ -1,14 +1,14 @@
 provider "google" {
-  project = "a-07-451003"  
-  region  = "us-central1"
+  project = var.project_id
+  region  = var.region
   credentials = file(var.gcp_svc_key)
 }
 
 resource "google_compute_instance" "vm_sql-tf" {
-  name         = "vm-instance-sql-tf-2"
-  machine_type = "e2-medium"
-  zone         = "us-central1-a"
-  tags = ["http-server", "https-server", "allow-mysql"]
+  name         = var.instance_name
+  machine_type = var.machine_type
+  zone         = var.zone
+  tags = [var.tags.1 , var.tags.2, var.tags.3]
 
   can_ip_forward      = false
   deletion_protection = false
@@ -20,9 +20,9 @@ resource "google_compute_instance" "vm_sql-tf" {
     device_name = "disk-tf"
     
     initialize_params {
-      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20250415"
-      size  = 10
-      type  = "pd-balanced"
+      image = var.image
+      size  = var.disk_size
+      type  = var.disk_type
     }
 
     mode = "READ_WRITE"
@@ -42,7 +42,7 @@ resource "google_compute_instance" "vm_sql-tf" {
 
  
 
-  metadata_startup_script = file("startup-script.sh")
+  metadata_startup_script = file(var.metadata_startup_script)
 }
 
 
