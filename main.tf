@@ -8,7 +8,7 @@ resource "google_compute_instance" "vm_sql-tf" {
   name         = var.instance_name
   machine_type = var.machine_type
   zone         = var.zone
-  tags         = [var.tags.1, var.tags.2, var.tags.3]
+  tags         = [var.tags.0, var.tags.1, var.tags.2]
 
   can_ip_forward      = false
   deletion_protection = false

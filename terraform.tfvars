@@ -8,3 +8,4 @@ disk_size               = 10
 disk_type               = "pd-balanced"
 image                   = "ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20250415"
 metadata_startup_script = "startup-script.sh"
+tags = ["http-server", "https-server", "allow-mysql"]
