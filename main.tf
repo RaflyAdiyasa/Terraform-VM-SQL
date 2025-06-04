@@ -47,7 +47,7 @@ resource "google_compute_instance" "vm_sql-tf" {
 
 resource "google_compute_firewall" "allow_mysql" {
   name    = "allow-mysql"
-  network = google_compute_network.main.name
+  network = "default"
 
   allow {
     protocol = "tcp"
