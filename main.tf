@@ -45,6 +45,18 @@ resource "google_compute_instance" "vm_sql-tf" {
   metadata_startup_script = file(var.metadata_startup_script)
 }
 
+resource "google_compute_firewall" "allow_mysql" {
+  name    = "allow-mysql"
+  network = google_compute_network.main.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["3306"]
+  }
+
+  target_tags = ["allow-mysql"]
+  source_ranges = ["0.0.0.0/0"] 
+}
 
 output "ip-address" {
   value       = google_compute_instance.vm_sql-tf.network_interface[0].access_config[0].nat_ip
