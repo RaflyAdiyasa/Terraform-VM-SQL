@@ -1,5 +1,5 @@
-gcp_svc_key             = "~/.config/gcloud/g-01-02-01a4c31676d8.json"
-project_id              = "g-01-02"
+gcp_svc_key             = "~/.config/gcloud/project-tcc-teori-2b45af6b47a5.json"
+project_id              = "project-tcc-teori"
 region                  = "us-central1"
 zone                    = "us-central1-a"
 instance_name           = "vm-instance-sql-tf-fwz"
