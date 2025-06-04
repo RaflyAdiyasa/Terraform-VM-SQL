@@ -1,26 +1,26 @@
 #!/bin/bash
 
-# Update paket dan install MySQL Server
+
 apt update
 DEBIAN_FRONTEND=noninteractive apt install -y mysql-server ufw
 
-# Pastikan MySQL service jalan
+
 systemctl enable mysql
 systemctl start mysql
 
-# Ubah konfigurasi MySQL supaya bisa diakses dari luar (bind ke semua IP)
+
 sed -i "s/^bind-address\s*=.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
 
 
-# Restart MySQL supaya perubahan berlaku
+
 systemctl restart mysql
 
 echo "MySQL server sudah diubah bind-address ke mana mana "
 
-# Buat database, user baru, dan grant akses dari semua IP
-DB_USER="huan"
+
+DB_USER="assigngo_user"
 DB_PASS="pass123"
-DB_NAME="catatanku"
+DB_NAME="assigngo"
 
 mysql -u root <<EOF
 CREATE DATABASE IF NOT EXISTS ${DB_NAME};

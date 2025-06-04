@@ -1,11 +1,11 @@
-gcp_svc_key             = "~/.config/gcloud/a-07-451003-c0771c698570.json"
-project_id              = "a-07-451003"
+gcp_svc_key             = "~/.config/gcloud/g-01-02-01a4c31676d8.json"
+project_id              = "g-01-02"
 region                  = "us-central1"
 zone                    = "us-central1-a"
-instance_name           = "vm-instance-sql-tf-2"
+instance_name           = "vm-instance-sql-tf-fwz"
 machine_type            = "e2-medium"
 disk_size               = 10
 disk_type               = "pd-balanced"
-image                   = "ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20250415"
+image                   = "projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20250508"
 metadata_startup_script = "startup-script.sh"
 tags = ["http-server", "https-server", "allow-mysql"]
